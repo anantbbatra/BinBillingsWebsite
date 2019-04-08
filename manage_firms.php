@@ -35,7 +35,7 @@
             echo("</td>");
         }
         echo "<td>";
-        echo('<a href="edit.php?id=' . htmlentities($transaction['provider_id']) . '">Edit</a> / ');
+        echo('<a href="edit_firm.php?id=' . htmlentities($transaction['provider_id']) . '">Edit</a>');
         echo("</td>");
 
 
