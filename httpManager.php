@@ -46,6 +46,17 @@ function getFirm($provider_id)
     return $output;
 }
 
+function getCust($cust_id)
+{
+    $res = $GLOBALS['client']->get('http://192.168.0.192:3000/userInfo', [
+        'query' => ['cust_id' => $cust_id]
+    ]);
+    //echo $res->getStatusCode();           // 200
+    //echo $res->getHeader('content-type'); // 'application/json; charset=utf8'
+    $output = json_decode($res->getBody(), true);        // {"type":"User"...'
+    return $output;
+}
+
 
 function addFirm($provider_name,$provider_email,$firm_contact_num,$firm_address,$green_rate,$brown_rate,$red_rate,$paymentInfo,$provider_id = "",$account_comments = "")
 {
@@ -59,6 +70,25 @@ function addFirm($provider_name,$provider_email,$firm_contact_num,$firm_address,
             'brown_rate' => $brown_rate,
             'red_rate' => $red_rate,
             'paymentInfo' => $paymentInfo,
+            'provider_id' => $provider_id,
+            'account_comments' => $account_comments,
+        ]
+    ]);
+    echo $res->getStatusCode();           // 200
+    //echo $res->getHeader('content-type'); // 'application/json; charset=utf8'
+    $output = json_decode($res->getBody(), true);        // {"type":"User"...'
+    return $output;
+}
+
+function updateCust($cust_id,$cust_name,$cust_email,$community_id,$balance,$provider_id,$account_comments)
+{
+    $res = $GLOBALS['client']->post('http://192.168.0.192:3000/registration', [
+        'form_params' => [
+            'cust_id' => $cust_id,
+            'cust_name' => $cust_name,
+            'cust_email' => $cust_email,
+            'community_id' => $community_id,
+            'balance' => $balance,
             'provider_id' => $provider_id,
             'account_comments' => $account_comments,
         ]

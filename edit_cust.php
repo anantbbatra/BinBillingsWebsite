@@ -4,18 +4,17 @@ require_once "httpManager.php";
 $cust_id = $_GET['id'];
 
 if ( isset($_POST['edit'])) {
-    $firm = addCust($cust_id, $_POST['cust_name'],$_POST['cust_email'],$_POST['community_id'],
+    $firm = updateCust($cust_id, $_POST['cust_name'],$_POST['cust_email'],$_POST['community_id'],
         $_POST['balance'],$_POST['provider_id'], $_POST['account_comments']);
-
     //echo "<pre>\n$firm\n</pre>\n";
-    echo 'Firm has been updated. - <a href="manage_firms.php">Continue...</a>';
+    echo 'Customer has been updated. - <a href="manage_customers.php">Continue...</a>';
     return;
 }
 
-$firm = getFirm($cust_id);
+$firm = getCust($cust_id);
 
 echo('
-<p>Edit Firm</p>
+<p>Edit Customer</p>
 <form method="post">
 <table border="1">
 
@@ -24,41 +23,41 @@ echo('
         <td>Old Value</td>
     </tr>
     <tr>
-        <td>provider_id</td>
-        <td>'.$firm["provider_id"].'</td>
+        <td>cust_id</td>
+        <td>'.$firm["cust_id"].'</td>
         
     </tr>
     <tr>
+        <td>cust_name</td>
+        <td><input type="text" name="cust_name" value = "'.$firm["cust_name"].'"></p></td>
+    </tr>
+    <tr>
+        <td>cust_email</td>
+        <td><input type="text" name="cust_email" value = "'.$firm["cust_email"].'"></p></td>
+    </tr>
+    <tr>
+        <td>community_id</td>
+        <td><input type="text" name="community_id" value = "'.$firm["community_id"].'"></p></td>
+    </tr>
+    <tr>
+        <td>balance</td>
+        <td><input type="text" name="balance" value = "'.$firm["balance"].'"></p></td>
+    </tr>
+    <tr>
+        <td>provider_id</td>
+        <td><input type="text" name="provider_id" value = "'.$firm["provider_id"].'"></p></td>
+    </tr>
+    <tr>
         <td>provider_name</td>
-        <td><input type="text" name="provider_name" value = "'.$firm["provider_name"].'"></p></td>
+        <td>'.$firm["provider_name"].'</td>
     </tr>
     <tr>
-        <td>provider_email</td>
-        <td><input type="text" name="provider_email" value = "'.$firm["provider_email"].'"></p></td>
+        <td>apartment_name</td>
+        <td>'.$firm["apartment_name"].'</td>
     </tr>
     <tr>
-        <td>firm_contact_num</td>
-        <td><input type="text" name="firm_contact_num" value = "'.$firm["firm_contact_num"].'"></p></td>
-    </tr>
-    <tr>
-        <td>firm_address</td>
-        <td><input type="text" name="firm_address" value = "'.$firm["firm_address"].'"></p></td>
-    </tr>
-    <tr>
-        <td>green_rate</td>
-        <td><input type="text" name="green" value = "'.$firm["green"].'"></p></td>
-    </tr>
-    <tr>
-        <td>brown_rate</td>
-        <td><input type="text" name="brown" value = "'.$firm["brown"].'"></p></td>
-    </tr>
-    <tr>
-        <td>red_rate</td>
-        <td><input type="text" name="red" value = "'.$firm["red"].'"></p></td>
-    </tr>
-    <tr>
-        <td>paymentInfo</td>
-        <td><input type="text" name="paymentinfo" value = "'.$firm["paymentinfo"].'"></td>
+        <td>city_name</td>
+        <td>'.$firm["city_name"].'</td>
     </tr>
     <tr>
         <td>account_status</td>
@@ -72,7 +71,7 @@ echo('
     </table>
     
     <p><input type="submit" value="Edit" name="edit"/>
-    <a href="manage_firms.php">Cancel</a></p>
+    <a href="manage_customers.php">Cancel</a></p>
 </form>
 
 ');
