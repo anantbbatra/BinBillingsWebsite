@@ -15,7 +15,7 @@
         }
     }
 
-    echo '<table border="1">' . "\n";
+    echo '<div style="overflow-y:auto;height: 250px; border: 1px solid red"><table border="1">' . "\n";
     $result = getFirms();
 
     echo "<tr>";
@@ -53,4 +53,4 @@
     }
 ?>
 
-</table> <a href="add_firm.php">Add New</a>
+</table></div><br/> <a href="add_firm.php">Add New</a>

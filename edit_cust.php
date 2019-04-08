@@ -1,19 +1,18 @@
 <?php
 require_once "httpManager.php";
 
-$provider_id = $_GET['id'];
+$cust_id = $_GET['id'];
 
 if ( isset($_POST['edit'])) {
-    $firm = addFirm($_POST['provider_name'],$_POST['provider_email'],$_POST['firm_contact_num'],
-        $_POST['firm_address'],$_POST['green'],$_POST['brown'],
-        $_POST['red'],$_POST['paymentinfo'],$provider_id, $_POST['account_comments']);
+    $firm = addCust($cust_id, $_POST['cust_name'],$_POST['cust_email'],$_POST['community_id'],
+        $_POST['balance'],$_POST['provider_id'], $_POST['account_comments']);
 
     //echo "<pre>\n$firm\n</pre>\n";
     echo 'Firm has been updated. - <a href="manage_firms.php">Continue...</a>';
     return;
 }
 
-$firm = getFirm($provider_id);
+$firm = getFirm($cust_id);
 
 echo('
 <p>Edit Firm</p>
