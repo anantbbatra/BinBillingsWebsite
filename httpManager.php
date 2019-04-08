@@ -26,6 +26,19 @@ function getUsers()
     return $output;
 }
 
+
+
+function getRechargeHistory($cust_id = 1)
+{
+    $res = $GLOBALS['client']->get('http://192.168.0.192:3000/rechargeHistory', [
+        'query' => ['cust_id' => $cust_id]
+    ]);
+    //echo $res->getStatusCode();           // 200
+    //echo $res->getHeader('content-type'); // 'application/json; charset=utf8'
+    $output = json_decode($res->getBody(), true);        // {"type":"User"...'
+    return $output;
+}
+
 function getFirms()
 {
     $res = $GLOBALS['client']->get('http://192.168.0.192:3000/firms');
@@ -39,6 +52,18 @@ function getFirm($provider_id)
 {
     $res = $GLOBALS['client']->get('http://192.168.0.192:3000/providerInfo', [
         'query' => ['provider_id' => $provider_id]
+    ]);
+    //echo $res->getStatusCode();           // 200
+    //echo $res->getHeader('content-type'); // 'application/json; charset=utf8'
+    $output = json_decode($res->getBody(), true);        // {"type":"User"...'
+    return $output;
+}
+
+
+function refund($recharge_id)
+{
+    $res = $GLOBALS['client']->post('http://192.168.0.192:3000/refund', [
+        'form_params' => ['recharge_id' => $recharge_id]
     ]);
     //echo $res->getStatusCode();           // 200
     //echo $res->getHeader('content-type'); // 'application/json; charset=utf8'

@@ -47,6 +47,10 @@ foreach ($result as $key => $transaction){
     }
     echo("</td>");
 
+    echo "<td>";
+    echo('<a href="recharge_history.php?cust_id=' . htmlentities($transaction['cust_id']) . '">Recharge History</a>');
+    echo("</td>");
+
     echo("</tr>\n");
 }
 ?>
