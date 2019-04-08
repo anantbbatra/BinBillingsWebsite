@@ -6,11 +6,21 @@ require 'vendor/autoload.php';
 $GLOBALS['client'] = new GuzzleHttp\Client();
 
 //this works but needs to be edited according to functions
-function getTransactions($cust_id)
+function getTransactions($cust_id, $provider_id, $option)
 {
-    $res = $GLOBALS['client']->get('http://192.168.0.192:3000/transactions', [
-        'query' => ['cust_id' => $cust_id]
-    ]);
+    if ($option==0){
+        $res = $GLOBALS['client']->get('http://192.168.0.192:3000/transactions/byCust', [
+            'query' => ['cust_id' => $cust_id]
+        ]);
+    }else if ($option==1){
+        $res = $GLOBALS['client']->get('http://192.168.0.192:3000/transactions/byFirm', [
+            'query' => ['provider_id' => $provider_id]
+        ]);
+    }else{
+        $res = $GLOBALS['client']->get('http://192.168.0.192:3000/transactions/byBoth', [
+            'query' => ['cust_id' => $cust_id, 'provider_id' => $provider_id]
+        ]);
+    }
     //echo $res->getStatusCode();           // 200
     //echo $res->getHeader('content-type'); // 'application/json; charset=utf8'
     $output = json_decode($res->getBody(), true);        // {"type":"User"...'
