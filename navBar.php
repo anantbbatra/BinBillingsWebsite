@@ -82,8 +82,8 @@ echo('
     <li class="dropdown">
         <a href="javascript:void(0)" class="dropbtn">Bins</a>
         <div class="dropdown-content">
-            <a href="manage_customers.php">Manage Existing</a>
-            <a href="manage_customers.php">Add New</a>
+            <a href="manage_bins.php">Manage Existing</a>
+            <a href="add_bin.php">Add New</a>
         </div>
     </li>
     <li class="dropdown">

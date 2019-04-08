@@ -28,11 +28,11 @@ if ( isset($_POST['provider_name']) && isset($_POST['provider_email'])
     <p>firm_address:
         <input type="text" name="firm_address"></p>
     <p>green_rate:
-        <input type="text" name="green_rate"></p>
+        <input type="number" min="0" name="green_rate"></p>
     <p>brown_rate:
-        <input type="text" name="brown_rate"></p>
+        <input type="number" min="0" name="brown_rate"></p>
     <p>red_rate:
-        <input type="text" name="red_rate"></p>
+        <input type="number" min="0" name="red_rate"></p>
     <p>paymentInfo:
         <input type="text" name="paymentInfo"></p>
     <p><input type="submit" value="Add New"/>
