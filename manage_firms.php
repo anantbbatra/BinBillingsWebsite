@@ -40,12 +40,10 @@
 
 
         echo "<td>";
-        if ($transaction["account_status"]=="Inactive"){
-//            echo('<a href="edit.php?id=' . htmlentities($value) . '">Enable</a>');
-            echo('<form method="get"> <input type="hidden" name="id" value=');echo($transaction["provider_id"]);echo('> <input type="submit" value="Enable" name="enable"> </form>');
-        }else{
+        if ($transaction["account_status"]=="Active"){
             echo('<form method="get"> <input type="hidden" name="id" value=');echo($transaction["provider_id"]);echo('> <input type="submit" value="Disable" name="disable"> </form>');
-
+        }else{
+            echo('<form method="get"> <input type="hidden" name="id" value=');echo($transaction["provider_id"]);echo('> <input type="submit" value="Enable" name="enable"> </form>');
         }
         echo("</td>");
 
