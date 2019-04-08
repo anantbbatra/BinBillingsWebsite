@@ -1,6 +1,6 @@
 <?php
 require_once "httpManager.php";
-
+include('navBar.php');
 $provider_id = $_GET['id'];
 
 if ( isset($_POST['edit'])) {

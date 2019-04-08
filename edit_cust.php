@@ -1,4 +1,5 @@
 <?php
+include('navBar.php');
 require_once "httpManager.php";
 
 $cust_id = $_GET['id'];

@@ -1,4 +1,5 @@
 <?php
+include('navBar.php');
 require_once "httpManager.php";
 
 
@@ -7,6 +8,7 @@ if ( isset($_POST['edit'])) {
     $query = updateQuery($_POST['query_id'],$_POST['admin_comments'],$_POST['resolved']);
     echo 'Query has been updated.';
     return;
+
 }
 
 $transaction_id = $_GET['transaction_id'];

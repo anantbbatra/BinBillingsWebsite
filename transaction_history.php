@@ -1,16 +1,16 @@
 
-<form method="get">
+<?php
+include('navBar.php');
+
+require_once "httpManager.php";
+echo('<form method="get">
     <p>Provider_id:
         <input type="text" name="provider_id"></p>
     <p>Customer_id:
         <input type="text" name="cust_id"></p>
     <p><input type="submit" value="Search"/>
     </p>
-</form>
-
-<?php
-
-require_once "httpManager.php";
+</form>');
 
 if (!empty($_GET['cust_id'])) {
     if (!empty($_GET['provider_id'])){
@@ -28,9 +28,9 @@ echo '<div style="overflow-y:auto;width:max-content ;height: 250px; border: 1px 
 
 echo "<tr>";
 foreach($result[0] as $header => $value) {
-    echo "<td>";
+    echo "<td><b>";
     echo(htmlentities($header));
-    echo("</td>");
+    echo("</b></td>");
 }
 echo "</tr>";
 

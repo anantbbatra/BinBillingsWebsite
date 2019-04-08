@@ -1,4 +1,6 @@
 <?php
+
+include('navBar.php');
 require_once "httpManager.php";
 if ( isset($_POST['provider_name']) && isset($_POST['provider_email'])
     && isset($_POST['firm_contact_num']) && isset($_POST['firm_address'])

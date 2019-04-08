@@ -1,4 +1,5 @@
 <?php
+include('navBar.php');
 
 require_once "httpManager.php";
 if (isset($_GET['id'])) {
@@ -20,9 +21,9 @@ $result = getUsers();
 
 echo "<tr>";
 foreach($result[0] as $header => $value) {
-    echo "<td>";
+    echo "<td><b>";
     echo(htmlentities($header));
-    echo("</td>");
+    echo("</b></td>");
 }
 echo "</tr>";
 
