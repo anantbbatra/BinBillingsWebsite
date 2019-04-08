@@ -43,11 +43,11 @@ foreach ($result as $key => $transaction){
         echo("</td>");
     }
 
-//    echo "<td>";
-//    if ($transaction["amount"]>0){
-//        echo('<form method="post"> <input type="hidden" name="recharge_id" value=');echo($transaction["recharge_id"]);echo('> <input type="submit" value="Refund" name="refund"> </form>');
-//    }
-//    echo("</td>");
+    echo "<td>";
+    if ($transaction["status"]=="conflict"){
+        echo('<a href="inspect.php?transaction_id=' . htmlentities($transaction['transaction_id']) . '">Inspect Issue</a>');
+    }
+    echo("</td>");
 
     echo("</tr>\n");
 }

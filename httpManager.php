@@ -81,6 +81,17 @@ function refund($recharge_id)
     return $output;
 }
 
+function updateQuery($query_id, $admin_comments, $resolved)
+{
+    $res = $GLOBALS['client']->post('http://192.168.0.192:3000/updateQuery', [
+        'form_params' => ['query_id' => $query_id, 'admin_comments' => $admin_comments, 'resolved' => (($resolved=="on") ? 1:0)]
+    ]);
+    echo $res->getStatusCode();           // 200
+    //echo $res->getHeader('content-type'); // 'application/json; charset=utf8'
+    $output = json_decode($res->getBody(), true);        // {"type":"User"...'
+    return $output;
+}
+
 function getCust($cust_id)
 {
     $res = $GLOBALS['client']->get('http://192.168.0.192:3000/userInfo', [
@@ -91,6 +102,19 @@ function getCust($cust_id)
     $output = json_decode($res->getBody(), true);        // {"type":"User"...'
     return $output;
 }
+
+function getQuery($transaction_id)
+{
+    $res = $GLOBALS['client']->get('http://192.168.0.192:3000/query', [
+        'query' => ['transaction_id' => $transaction_id]
+    ]);
+    //echo $res->getStatusCode();           // 200
+    //echo $res->getHeader('content-type'); // 'application/json; charset=utf8'
+    $output = json_decode($res->getBody(), true);        // {"type":"User"...'
+    return $output;
+}
+
+
 
 
 function addFirm($provider_name,$provider_email,$firm_contact_num,$firm_address,$green_rate,$brown_rate,$red_rate,$paymentInfo,$provider_id = "",$account_comments = "")
