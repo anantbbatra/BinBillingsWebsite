@@ -164,12 +164,12 @@ function addFirm($provider_name,$provider_email,$firm_contact_num,$firm_address,
     return $output;
 }
 
-function updateBin($provider_name,$community_id,$x_coordinate,
-        $y_coordinate,$color,$provider_id,$bin_id ="")
+function uploadBin($status,$community_id,$x_coordinate,
+        $y_coordinate,$color,$provider_id="",$bin_id ="")
 {
     $res = $GLOBALS['client']->request('post','bin', [
         'form_params' => [
-            'provider_name' => $provider_name,
+            'status' => $status,
             'community_id' => $community_id,
             'x_coordinate' => $x_coordinate,
             'y_coordinate' => $y_coordinate,
@@ -231,4 +231,6 @@ function setCustStatus($cust_id, $account_status)
 //    $output = json_decode($res->getBody(), true);        // {"type":"User"...'
 //    return $output;
 }
+
+
 ?>

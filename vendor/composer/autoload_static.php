@@ -18,11 +18,23 @@ class ComposerStaticInite99ffd997c72afd83d4ab51f46658f6c
         array (
             'Psr\\Http\\Message\\' => 17,
         ),
+        'J' => 
+        array (
+            'Jweety\\' => 7,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
+        ),
+        'F' => 
+        array (
+            'Firebase\\JWT\\' => 13,
+        ),
+        'E' => 
+        array (
+            'Emarref\\Jwt\\' => 12,
         ),
     );
 
@@ -30,6 +42,10 @@ class ComposerStaticInite99ffd997c72afd83d4ab51f46658f6c
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Jweety\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vaibhavpandeyvpz/jweety/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (
@@ -42,6 +58,14 @@ class ComposerStaticInite99ffd997c72afd83d4ab51f46658f6c
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
+        ),
+        'Emarref\\Jwt\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/emarref/jwt/src',
         ),
     );
 

@@ -57,7 +57,7 @@ echo('
     </style>
 </head>
 <body>
-<h1 style="color: green" align="center">Bin Billings</h1>
+<h1 style="color: green" align="center">Bin Billings - Admin Portal</h1>
 
 <ul>
     <li class="dropdown">
