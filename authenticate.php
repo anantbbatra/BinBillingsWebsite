@@ -14,7 +14,6 @@ function authenticateUser()
     }
     $decodedCookie = json_decode($_COOKIE["jwtToken"], true);
 
-
     $token = array(
         "userId" => $decodedCookie["userId"],
         "userType" => $decodedCookie["userType"],

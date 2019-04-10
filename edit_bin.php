@@ -8,7 +8,7 @@ if ( isset($_POST['edit'])) {
         $_POST['y_coordinate'],$_POST['color'],$_POST['provider_id'],$_POST['bin_id']);
 
     //echo "<pre>\n$bin\n</pre>\n";
-    echo 'Firm has been updated. - <a href="manage_bins.php">Continue...</a>';
+    echo 'Bin has been updated. - <a href="manage_bins.php">Continue...</a>';
     return;
 }
 
