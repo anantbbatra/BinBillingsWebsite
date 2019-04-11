@@ -57,7 +57,7 @@ echo('
     </style>
 </head>
 <body>
-<h1 style="color: green" align="center">Bin Billings - Admin Portal</h1>
+<h1 style="color: green" align="center">Bin Billings</h1>
 
 <ul>
     <li>
@@ -67,7 +67,7 @@ echo('
         <a href="javascript:void(0)" class="dropbtn">Membership</a>
         <div class="dropdown-content">
             <a href="membership_info.php">Learn More</a>
-            <a href="register_firm.php">Register Interest</a>
+            <a href="registration_form.php">Register Interest</a>
         </div>
     </li>
     <li>
