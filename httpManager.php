@@ -242,6 +242,20 @@ function setFirmStatus($provider_id, $account_status)
 //    return $output;
 }
 
+function setBinStatus($bin_id, $status)
+{
+    $res = $GLOBALS['client']->request('post','bin/status', [
+        'form_params' => [
+            'bin_id' => $bin_id,
+            'status' => $status,
+        ]
+    ]);
+//    echo $res->getStatusCode();           // 200
+//    //echo $res->getHeader('content-type'); // 'application/json; charset=utf8'
+//    $output = json_decode($res->getBody(), true);        // {"type":"User"...'
+//    return $output;
+}
+
 function setCustStatus($cust_id, $account_status)
 {
     $res = $GLOBALS['client']->request('post','cust/status', [

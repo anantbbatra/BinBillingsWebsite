@@ -1,6 +1,14 @@
 <?php
 include('navBar.php');
 
+//------------------------------Authentication----------------------------------------
+include ("authenticate.php");
+$userInfo = authenticateUser();
+$usertype = $userInfo["userType"];
+$userId = $userInfo["userId"];
+//------------------------------Authentication----------------------------------------
+
+
 require_once "httpManager.php";
 if (isset($_GET['id'])) {
     if (isset($_GET['enable'])) {

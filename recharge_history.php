@@ -2,6 +2,14 @@
 include('navBar.php');
 require_once "httpManager.php";
 
+//------------------------------Authentication----------------------------------------
+include ("authenticate.php");
+$userInfo = authenticateUser();
+$usertype = $userInfo["userType"];
+$userId = $userInfo["userId"];
+//------------------------------Authentication----------------------------------------
+
+
 if (isset($_POST['refund'])) {
         $firm = refund($_POST['recharge_id']);
 //        echo "<pre>\n$firm\n</pre>\n";
@@ -35,11 +43,15 @@ foreach ($result as $key => $transaction){
         echo("</td>");
     }
 
-    echo "<td>";
-    if ($transaction["amount"]>0){
-        echo('<form method="post"> <input type="hidden" name="recharge_id" value=');echo($transaction["recharge_id"]);echo('> <input type="submit" value="Refund" name="refund"> </form>');
+    if ($usertype=='employee') {
+        echo "<td>";
+        if ($transaction["amount"] > 0) {
+            echo('<form method="post"> <input type="hidden" name="recharge_id" value=');
+            echo($transaction["recharge_id"]);
+            echo('> <input type="submit" value="Refund" name="refund"> </form>');
+        }
+        echo("</td>");
     }
-    echo("</td>");
 
     echo("</tr>\n");
 }

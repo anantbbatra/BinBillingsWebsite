@@ -74,13 +74,18 @@ echo('
             <a href="transaction_history.php">Search</a>
         </div>
     </li>
-    <li class="dropdown">
-        <a href="javascript:void(0)" class="dropbtn">Providers</a>
-        <div class="dropdown-content">
-            <a href="manage_firms.php">Manage Existing</a>
-            <a href="add_firm.php">Add New</a>
-        </div>
-    </li>
+    
+    ');
+    if ($userType=="employee") {echo('
+            <li class="dropdown" >
+        <a href = "javascript:void(0)" class="dropbtn" > Providers</a >
+        <div class="dropdown-content" >
+            <a href = "manage_firms.php" > Manage Existing </a >
+            <a href = "add_firm.php" > Add New</a >
+        </div >
+    </li >
+    ');}
+echo('
     <li class="dropdown">
         <a href="javascript:void(0)" class="dropbtn">Customers</a>
         <div class="dropdown-content">
@@ -91,7 +96,13 @@ echo('
         <a href="javascript:void(0)" class="dropbtn">Bins</a>
         <div class="dropdown-content">
             <a href="manage_bins.php">Manage Existing</a>
-            <a href="add_bin.php">Add New</a>
+            ');
+            if ($userType=='employee') {
+                echo('    
+                    <a href="add_bin.php">Add New</a>
+                    ');
+            }
+            echo('         
         </div>
     </li>
     <li class="dropdown">

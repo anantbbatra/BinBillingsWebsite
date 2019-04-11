@@ -2,6 +2,14 @@
 include('navBar.php');
 require_once "httpManager.php";
 
+//------------------------------Authentication----------------------------------------
+include ("authenticate.php");
+$userInfo = authenticateUser();
+$usertype = $userInfo["userType"];
+$userId = $userInfo["userId"];
+//------------------------------Authentication----------------------------------------
+
+
 $cust_id = $_GET['id'];
 
 if ( isset($_POST['edit'])) {
@@ -40,6 +48,9 @@ echo('
         <td>community_id</td>
         <td><input type="text" name="community_id" value = "'.$firm["community_id"].'"></p></td>
     </tr>
+    ');
+if ($usertype=="employee"){echo('
+    
     <tr>
         <td>balance</td>
         <td><input type="text" name="balance" value = "'.$firm["balance"].'"></p></td>
@@ -48,6 +59,15 @@ echo('
         <td>provider_id</td>
         <td><input type="text" name="provider_id" value = "'.$firm["provider_id"].'"></p></td>
     </tr>
+    
+ ');
+}else{
+    echo (' <td><input type="hidden" name="balance" value = "'.$firm["balance"].'"></p></td>
+        <td><input type="hidden" name="provider_id" value = "'.$firm["provider_id"].'"></p></td>
+');
+}
+
+echo('
     <tr>
         <td>provider_name</td>
         <td>'.$firm["provider_name"].'</td>

@@ -1,6 +1,13 @@
 <?php
 require_once "httpManager.php";
 include('navBar.php');
+//------------------------------Authentication----------------------------------------
+include ("authenticate.php");
+$userInfo = authenticateUser();
+$usertype = $userInfo["userType"];
+$userId = $userInfo["userId"];
+//------------------------------Authentication----------------------------------------
+
 $bin_id = $_GET['bin_id'];
 
 if (isset($_POST['edit'])) {
@@ -27,7 +34,12 @@ echo('
         <td>bin_id</td>
         <td>'.$bin["bin_id"].'</td>
     </tr>
-    <input type="hidden" name="bin_id" value = "'.$bin["bin_id"].'">    
+    <input type="hidden" name="bin_id" value = "'.$bin["bin_id"].'"> 
+    
+    ');
+if ($usertype=="employee"){
+    echo ('
+       
     <tr>
         <td>community_id</td>
         <td>'.$bin["community_id"].'</td>
@@ -43,10 +55,7 @@ echo('
         <td>'.$bin["y_coordinate"].'</td>
     </tr>
     <input type="hidden" name="y_coordinate" value = "'.$bin["y_coordinate"].'">
-    <tr>
-        <td>color</td>
-        <td><input type="text" name="color" value = "'.$bin["color"].'"></p></td>
-    </tr>
+    
     <tr>
         <td>provider_id</td>
         <td><input type="text" name="provider_id" value = "'.$bin["provider_id"].'"></p></td>
@@ -55,6 +64,40 @@ echo('
         <td>MAC_address</td>
         <td><input type="text" name="mac" value = "'.$bin["mac"].'"></p></td>
     </tr>
+    <tr>
+        <td>color</td>
+        <td><input type="text" name="color" value = "'.$bin["color"].'"></p></td>
+    </tr>
+    ');
+}else{
+    echo('
+    <tr>
+        <td>community_id</td>
+        <td><input type="text" name="community_id" value = "'.$bin["community_id"].'"></td>
+    </tr>
+    <tr>
+        <td>color</td>
+        <td>'.$bin["color"].'</td>
+        <input type="hidden" name="color" value = "'.$bin["color"].'">
+    </tr>
+    <tr>
+        <td>x_coordinate</td>
+        <td><input type="text" name="x_coordinate" value = "'.$bin["x_coordinate"].'"></td>
+    </tr>
+    <tr>
+        <td>y_coordinate</td>
+        <td><input type="text" name="y_coordinate" value = "'.$bin["y_coordinate"].'"></td>
+        <input type="hidden" name="provider_id" value = "'.$bin["provider_id"].'">
+    </tr>  
+    <tr>
+        <td>MAC_address</td>
+        <td>'.$bin["mac"].'</td>
+    </tr>
+    <input type="hidden" name="mac" value = "'.$bin["mac"].'">  
+    
+    ');
+}
+echo('
     <tr>
         <td>status</td>
         <td>'.$bin["status"].'</td>
