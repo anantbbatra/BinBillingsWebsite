@@ -3,9 +3,9 @@ require_once "httpManager.php";
 include('navBar.php');
 $bin_id = $_GET['bin_id'];
 
-if ( isset($_POST['edit'])) {
+if (isset($_POST['edit'])) {
     $bin = uploadBin($_POST['status'],$_POST['community_id'],$_POST['x_coordinate'],
-        $_POST['y_coordinate'],$_POST['color'],$_POST['provider_id'],$_POST['bin_id']);
+        $_POST['y_coordinate'],$_POST['color'],$_POST['provider_id'],$_POST['bin_id'],$_POST['mac']);
 
     //echo "<pre>\n$bin\n</pre>\n";
     echo 'Bin has been updated. - <a href="manage_bins.php">Continue...</a>';
@@ -15,7 +15,7 @@ if ( isset($_POST['edit'])) {
 $bin = getBin($bin_id);
 
 echo('
-<p>Edit Bin</p>
+<h1>Edit Bin</h1>
 <form method="post">
 <table border="1">
 
@@ -52,6 +52,10 @@ echo('
         <td><input type="text" name="provider_id" value = "'.$bin["provider_id"].'"></p></td>
     </tr>
     <tr>
+        <td>MAC_address</td>
+        <td><input type="text" name="mac" value = "'.$bin["mac"].'"></p></td>
+    </tr>
+    <tr>
         <td>status</td>
         <td>'.$bin["status"].'</td>
     </tr>
@@ -63,7 +67,7 @@ echo('
 </table>
     
     <p><input type="submit" value="Edit" name="edit"/>
-    <a href="manage_firms.php">Cancel</a></p>
+    <a href="manage_bins.php">Cancel</a></p>
 </form>
 
 ');
