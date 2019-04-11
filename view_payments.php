@@ -6,6 +6,23 @@ require_once "httpManager.php";
 echo('<form method="get">
     <p>Provider_id:
         <input type="text" name="provider_id"></p>
+    <p>Month:
+        <select name="month">
+            <option value="Jan">Jan</option>
+            <option value="Feb">Feb</option>
+            <option value="Mar">Mar</option>
+            <option value="Apr">Apr</option>
+            <option value="May">May</option>
+            <option value="Jun">Jun</option>
+            <option value="Jul">Jul</option>
+            <option value="Aug">Aug</option>
+            <option value="Sep">Sep</option>
+            <option value="Oct">Oct</option>
+            <option value="Nov">Nov</option>
+            <option value="Dec">Dec</option>
+        </select></p>
+    <p>Year:
+        <input type="text" name="cust_id"></p>
     <p><input type="submit" value="Search"/>
     </p>
 </form>');
