@@ -27,6 +27,17 @@ function getPayments($provider_id="", $debited=0){
     return $output;
 }
 
+function confirmCredentials($username, $password){
+    $res = $GLOBALS['client']->request('post','login/website', [
+        'form_params' => ['username' => $username, 'password' => $password]
+    ]);
+
+    //echo $res->getStatusCode();           // 200
+    //echo $res->getHeader('content-type'); // 'application/json; charset=utf8'
+    $output = json_decode($res->getBody(), true);        // {"type":"User"...'
+    return $output;
+}
+
 
 //this works but needs to be edited according to functions
 function getTransactions($cust_id, $provider_id, $option)

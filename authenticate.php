@@ -3,9 +3,7 @@
 
 function authenticateUser()
 {
-
     $key = "binBillingsBestApp";
-
 
     if (!isset($_COOKIE["jwtToken"])) {
         http_response_code(401);
