@@ -89,8 +89,8 @@ echo('
     <li class="dropdown">
         <a href="javascript:void(0)" class="dropbtn">Payments</a>
         <div class="dropdown-content">
-            <a href="manage_customers.php">View Historical</a>
-            <a href="manage_customers.php">Create Payout</a>
+            <a href="view_payments.php">Historical Payment Records</a>
+            <a href="outstanding.php">View Outstanding</a>
         </div>
     </li>
     <li style="float:right"><a class="active" href="log_out.php">Log Out</a></li>

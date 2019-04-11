@@ -17,6 +17,18 @@ function getBins($provider_id){
 }
 
 //this works but needs to be edited according to functions
+function getPayments($provider_id="", $debited=0){
+    $res = $GLOBALS['client']->request('get','partner_payments', [
+        'query' => ['provider_id' => $provider_id, 'debited' => $debited]]);
+
+    //echo $res->getStatusCode();           // 200
+    //echo $res->getHeader('content-type'); // 'application/json; charset=utf8'
+    $output = json_decode($res->getBody(), true);        // {"type":"User"...'
+    return $output;
+}
+
+
+//this works but needs to be edited according to functions
 function getTransactions($cust_id, $provider_id, $option)
 {
     if ($option==0){
@@ -187,7 +199,7 @@ function uploadBin($status="",$community_id ="",$x_coordinate ="",
 
 function updateCust($cust_id,$cust_name,$cust_email,$community_id,$balance,$provider_id,$account_comments)
 {
-    $res = $GLOBALS['client']->request('post','registration', [
+    $res = $GLOBALS['client']->request('post','uploadCust', [
         'form_params' => [
             'cust_id' => $cust_id,
             'cust_name' => $cust_name,
