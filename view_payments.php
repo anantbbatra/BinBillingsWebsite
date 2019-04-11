@@ -1,11 +1,26 @@
 
 <?php
 include('navBar.php');
+//------------------------------Authentication----------------------------------------
+include ("authenticate.php");
+$userInfo = authenticateUser();
+$usertype = $userInfo["userType"];
+$userId = $userInfo["userId"];
+//------------------------------Authentication----------------------------------------
 
 require_once "httpManager.php";
-echo('<form method="get">
+echo('<form method="get">');
+
+if ($usertype=="employee"){echo('
+
+
+
     <p>Provider_id:
         <input type="text" name="provider_id"></p>
+        ');
+        }
+
+        echo('
     <p>Month:
         <select name="month">
             <option value="Jan">Jan</option>

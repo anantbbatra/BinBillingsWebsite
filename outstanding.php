@@ -1,11 +1,20 @@
 <?php
 include('navBar.php');
 require_once "httpManager.php";
-
+//------------------------------Authentication----------------------------------------
+include ("authenticate.php");
+$userInfo = authenticateUser();
+$usertype = $userInfo["userType"];
+$userId = $userInfo["userId"];
+//------------------------------Authentication----------------------------------------
 
 echo '<div style="overflow-y:auto;height: 250px;width: max-content; border: 1px solid red"><table border="1">' . "\n";
-$result = getPayments();
 
+if ($usertype=="employee") {
+    $result = getPayments();
+}else{
+    $result = getPayments($userId);
+}
 
 //if searched for outstanding using provider_id, $result = getOutStanding($provider_id, 0);
 
@@ -30,4 +39,4 @@ foreach ($result as $key => $transaction){
 }
 ?>
 
-</table></div><br/> <a href="add_firm.php">Add New</a>
+</table></div>
