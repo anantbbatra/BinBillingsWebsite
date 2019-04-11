@@ -1,11 +1,26 @@
 
 <?php
+require_once "httpManager.php";
 include('navBar.php');
 
-require_once "httpManager.php";
+
+//------------------------------Authentication----------------------------------------
+include ("authenticate.php");
+$userInfo = authenticateUser();
+$usertype = $userInfo["userType"];
+$userId = $userInfo["userId"];
+//------------------------------Authentication----------------------------------------
+
+
 echo('<form method="get">
+');
+if ($usertype == "employee"){
+    echo ('
     <p>Provider_id:
         <input type="text" name="provider_id"></p>
+        ');
+}
+echo('
     <p>Customer_id:
         <input type="text" name="cust_id"></p>
     <p><input type="submit" value="Search"/>
@@ -16,7 +31,12 @@ if (!empty($_GET['cust_id'])) {
     if (!empty($_GET['provider_id'])){
         $result = getTransactions($_GET['cust_id'],$_GET['provider_id'],2);
     }else{
-        $result = getTransactions($_GET['cust_id'],null,0);
+        if($usertype=="employee") {
+            $result = getTransactions($_GET['cust_id'], null, 0);
+        }else{
+
+            $result = getTransactions($_GET['cust_id'], $userId,2);
+        }
     }
 //    return;
 }else if(!empty($_GET['provider_id'])){

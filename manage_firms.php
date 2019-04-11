@@ -3,7 +3,7 @@
 include ("authenticate.php");
 $userInfo = authenticateUser();
 $usertype = $userInfo["userType"];
-$userId = $userInfo["userID"];
+$userId = $userInfo["userId"];
 
 if ($usertype != "employee"){
     header("Location: invalid_access.php");

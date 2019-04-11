@@ -10,7 +10,10 @@ function authenticateUser()
         header("login.php");
         return;
     }
+
     $decodedCookie = json_decode($_COOKIE["jwtToken"], true);
+
+
 
     $token = array(
         "userId" => $decodedCookie["userId"],

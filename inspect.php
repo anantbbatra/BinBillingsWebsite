@@ -56,7 +56,7 @@ echo('
     </table>
     <input type="hidden" name="query_id" value = "'.$query["query_id"].'" />
     <p><input type="submit" value="Edit" name="edit"/>
-    <a href="manage_customers.php">Cancel</a></p>
+    <a href="transaction_history.php">Cancel</a></p>
 </form>
 
 ');

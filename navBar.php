@@ -1,4 +1,8 @@
 <?php
+
+$decodedCookie = json_decode($_COOKIE["jwtToken"], true);
+$userType = $decodedCookie["userType"];
+
 echo('
 <!DOCTYPE html>
 <html>
@@ -57,7 +61,11 @@ echo('
     </style>
 </head>
 <body>
-<h1 style="color: green" align="center">Bin Billings - Admin Portal</h1>
+<h1 style="color: green" align="center">Bin Billings</h1>
+');
+if ($userType == "employee"){echo ('<h2 style="color: green" align="center">Admin Portal</h2>
+');}
+echo('
 
 <ul>
     <li class="dropdown">

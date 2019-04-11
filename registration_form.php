@@ -9,8 +9,6 @@ include ('login_nav.php');
 
 <p>Our team will get back to you for further details.</p>
 
-
-
 <form method="post" style="border: double; width: max-content">
     <p>Company name:
         <input type="text" name="provider_name"></p>
@@ -23,5 +21,3 @@ include ('login_nav.php');
 
     <p><input type="submit" value="Submit"/></p>
 </form>
-
-
