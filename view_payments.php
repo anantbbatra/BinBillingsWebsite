@@ -11,6 +11,9 @@ $userId = $userInfo["userId"];
 require_once "httpManager.php";
 echo('<form method="get">');
 
+echo('<h1>Historical Payments</h1>');
+
+
 if ($usertype=="employee"){echo('
 
 

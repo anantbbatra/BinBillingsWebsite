@@ -8,6 +8,8 @@ $usertype = $userInfo["userType"];
 $userId = $userInfo["userId"];
 //------------------------------Authentication----------------------------------------
 
+echo('<h1>View Current Outstanding</h1>');
+
 echo '<div style="overflow-y:auto;height: 250px;width: max-content; border: 1px solid red"><table border="1">' . "\n";
 
 if ($usertype=="employee") {

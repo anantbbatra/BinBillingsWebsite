@@ -3,7 +3,7 @@
 use GuzzleHttp\Client;
 
 require 'vendor/autoload.php';
-$GLOBALS['client'] = new GuzzleHttp\Client(['base_uri' => 'http://192.168.0.192:3000/']);
+$GLOBALS['client'] = new GuzzleHttp\Client(['base_uri' => 'http://192.168.0.193:3001/']);
 
 //this works but needs to be edited according to functions
 function getBins($provider_id){
@@ -181,7 +181,7 @@ function addFirm($provider_name,$provider_email,$firm_contact_num,$firm_address,
             'account_comments' => $account_comments,
         ]
     ]);
-    echo $res->getStatusCode();           // 200
+    //echo $res->getStatusCode();           // 200
     //echo $res->getHeader('content-type'); // 'application/json; charset=utf8'
     $output = json_decode($res->getBody(), true);        // {"type":"User"...'
     return $output;
@@ -202,7 +202,7 @@ function uploadBin($status="",$community_id ="",$x_coordinate ="",
             'mac' => $mac,
         ]
     ]);
-    echo $res->getStatusCode();           // 200
+    //echo $res->getStatusCode();           // 200
     //echo $res->getHeader('content-type'); // 'application/json; charset=utf8'
     $output = json_decode($res->getBody(), true);        // {"type":"User"...'
     return $output;
@@ -221,7 +221,7 @@ function updateCust($cust_id,$cust_name,$cust_email,$community_id,$balance,$prov
             'account_comments' => $account_comments,
         ]
     ]);
-    echo $res->getStatusCode();           // 200
+    //echo $res->getStatusCode();           // 200
     //echo $res->getHeader('content-type'); // 'application/json; charset=utf8'
     $output = json_decode($res->getBody(), true);        // {"type":"User"...'
     return $output;

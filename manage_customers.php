@@ -24,6 +24,8 @@ if (isset($_GET['id'])) {
     }
 }
 
+echo('<h1>Manage Customers</h1>');
+
 echo '<div style="overflow-y:auto;width:max-content; height: 250px; border: 1px solid red"><table border="1">' . "\n";
 $result = getUsers();
 

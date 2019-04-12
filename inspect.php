@@ -14,9 +14,9 @@ if ( isset($_POST['edit'])) {
 $transaction_id = $_GET['transaction_id'];
 $query = getQuery($transaction_id);
 
+echo('<h1>Inspect Customer Query</h1>');
 
 echo('
-<p>Inspect Issue</p>
 <form method="post">
 <table border="1">
 

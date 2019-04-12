@@ -20,7 +20,6 @@ if ( isset($_POST['username']) && isset($_POST['password'])) {
 
 function allow ($userID, $userType){
     $key = "binBillingsBestApp";
-    echo $userType;
     $token = array(
         "userId" => $userID,
         "userType" => $userType,

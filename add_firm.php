@@ -29,8 +29,9 @@ if ( isset($_POST['provider_name']) && isset($_POST['provider_email'])
     return;
 }
 
+echo('<h1>Create a new Provider Account</h1>');
+
 ?>
-<p>Add A New Firm</p>
 <form method="post">
     <p>provider_name:
         <input type="text" name="provider_name"></p>

@@ -14,9 +14,10 @@ if ( isset($_POST['edit'])) {
 }
 
 $firm = getFirm($provider_id);
+echo('<h1>Edit Provider Info</h1>');
+
 
 echo('
-<p>Edit Firm</p>
 <form method="post">
 <table border="1">
 

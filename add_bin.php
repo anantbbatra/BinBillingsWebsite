@@ -26,7 +26,7 @@ if (isset($_POST['status']) && isset($_POST['color'])
 
 ?>
 
-<h1>Add Bin</h1>
+<h1>Create New Bin</h1>
 <form method="post">
     <table border="1">
         <tr>

@@ -27,7 +27,10 @@ include('navBar.php');
         }
     }
 
-    echo '<div style="overflow-y:auto;height: 250px; border: 1px solid red"><table border="1">' . "\n";
+echo('<h1>Manage Providers</h1>');
+
+
+echo '<div style="overflow-y:auto;height: 250px; border: 1px solid red"><table border="1">' . "\n";
     $result = getFirms();
 
     echo "<tr>";

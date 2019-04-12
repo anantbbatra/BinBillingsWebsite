@@ -22,10 +22,10 @@ if (isset($_POST['refund'])) {
 }
 
 $cust_id = $_GET['cust_id'];
+echo '<h1>Customer Recharge History</h1>';
 
 echo '<div style="overflow-y:auto;width:max-content ;height: 250px; border: 1px solid red"><table border="1">' . "\n";
 $result = getRechargeHistory($cust_id);
-
 echo "<tr>";
 foreach($result[0] as $header => $value) {
     echo "<td><b>";

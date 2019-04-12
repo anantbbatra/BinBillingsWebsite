@@ -25,6 +25,9 @@ if (isset($_GET['id'])) {
     }
 }
 
+echo('<h1>Manage Bins</h1>');
+
+
 if ($usertype=="employee") {
     echo('<form method="get">
     <p>Provider_id:
@@ -39,7 +42,6 @@ if (!empty($_GET['provider_id'])) {
 if ($usertype != "employee"){
     $result = getBins($userId);
 }
-
 
 echo '<div style="overflow-y:auto;width:max-content ;height: 250px; border: 1px solid red"><table border="1">' . "\n";
 

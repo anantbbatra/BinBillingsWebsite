@@ -11,17 +11,18 @@ $usertype = $userInfo["userType"];
 $userId = $userInfo["userId"];
 //------------------------------Authentication----------------------------------------
 
+echo('<h1>Manage Transactions</h1>');
 
 echo('<form method="get">
 ');
 if ($usertype == "employee"){
     echo ('
-    <p>Provider_id:
+    <p>Provider id:
         <input type="text" name="provider_id"></p>
         ');
 }
 echo('
-    <p>Customer_id:
+    <p>Customer id:
         <input type="text" name="cust_id"></p>
     <p><input type="submit" value="Search"/>
     </p>

@@ -22,8 +22,10 @@ if ( isset($_POST['edit'])) {
 
 $firm = getCust($cust_id);
 
+echo('<h1>Edit Customer Info</h1>');
+
+
 echo('
-<p>Edit Customer</p>
 <form method="post">
 <table border="1">
 
