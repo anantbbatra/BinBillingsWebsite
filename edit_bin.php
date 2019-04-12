@@ -11,8 +11,8 @@ $userId = $userInfo["userId"];
 $bin_id = $_GET['bin_id'];
 
 if (isset($_POST['edit'])) {
-    $bin = uploadBin($_POST['status'],$_POST['community_id'],$_POST['x_coordinate'],
-        $_POST['y_coordinate'],$_POST['color'],$_POST['provider_id'],$_POST['bin_id'],$_POST['mac']);
+    $bin = uploadBin($_POST['color'],$_POST['provider_id'],$_POST['mac'],$_POST['status'],$_POST['community_id'],$_POST['x_coordinate'],
+        $_POST['y_coordinate'],$_POST['bin_id']);
 
     //echo "<pre>\n$bin\n</pre>\n";
     echo 'Bin has been updated. - <a href="manage_bins.php">Continue...</a>';

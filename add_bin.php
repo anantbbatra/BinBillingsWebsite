@@ -14,8 +14,9 @@ if ($usertype != "employee"){
 
 include('navBar.php');
 require_once "httpManager.php";
-if (isset($_POST['status']) && isset($_POST['color'])
+if (isset($_POST['mac']) && isset($_POST['color'])
     && isset($_POST['provider_id'])) {
+
     $bin = uploadBin($_POST['color'],$_POST['provider_id'],$_POST['mac']);
 
     //echo "<pre>\n$firm\n</pre>\n";

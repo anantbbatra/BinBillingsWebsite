@@ -187,8 +187,8 @@ function addFirm($provider_name,$provider_email,$firm_contact_num,$firm_address,
     return $output;
 }
 
-function uploadBin($status="",$community_id ="",$x_coordinate ="",
-        $y_coordinate = "",$color,$provider_id,$bin_id ="", $mac)
+function uploadBin($color,$provider_id, $mac, $status="",$community_id ="",$x_coordinate ="",
+        $y_coordinate = "",$bin_id ="")
 {
     $res = $GLOBALS['client']->request('post','bin', [
         'form_params' => [
